@@ -1,26 +1,230 @@
-# CSS Layouts and Responsive Design
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Demo</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-## Objectives
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
 
-Implement Flexbox and Grid for layout design.
-Make the webpage responsive using media queries.
-Ensure proper alignment and spacing.
+        /* Header - Flexbox */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-## Instructions
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-- use Flexbox or CSS Grid.
-- Add a navigation bar and structure the content.
-- Use media queries to adjust layout for mobile, tablet, and desktop.
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
 
->[!NOTE]
->  - Include at least:
->  - navigation bar
->  - media queries
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-# Tasks
+        nav a:hover {
+            color: #3498db;
+        }
 
-- Apply Flexbox or Grid for layout.
-- Make the page responsive.
-- Test across different screen sizes.
+        /* Main Content - Grid */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
 
-Happy Coding! 💻✨
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        /* Sidebar - Flexbox */
+        .sidebar {
+            background-color: #34495e;
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .sidebar ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        /* Footer - Flexbox */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Layout for larger screens */
+        @media (min-width: 768px) {
+            .main-layout {
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+            }
+
+            .sidebar {
+                height: 100vh;
+                position: sticky;
+                top: 0;
+            }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .main-layout {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Responsive Design</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-layout">
+        <main class="container">
+            <article class="card">
+                <img src="https://source.unsplash.com/random/600x400?tech" alt="Tech">
+                <div class="card-content">
+                    <h3>Technology Trends</h3>
+                    <p>Explore the latest in technology and innovation shaping our future.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://source.unsplash.com/random/600x400?design" alt="Design">
+                <div class="card-content">
+                    <h3>Modern Design</h3>
+                    <p>Discover contemporary design principles for digital experiences.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://source.unsplash.com/random/600x400?business" alt="Business">
+                <div class="card-content">
+                    <h3>Business Strategy</h3>
+                    <p>Learn how to adapt your business to the changing digital landscape.</p>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">UX Design</a></li>
+                <li><a href="#">Digital Marketing</a></li>
+                <li><a href="#">Content Strategy</a></li>
+                <li><a href="#">SEO Optimization</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <p>&copy; 2023 Responsive Design Demo. All rights reserved.</p>
+    </footer>
+</body>
+</html>
