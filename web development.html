@@ -3,148 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Design Demo</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header - Flexbox */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Main Content - Grid */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        /* Sidebar - Flexbox */
+        .sidebar {
+            background-color: #34495e;
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .sidebar ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        /* Footer - Flexbox */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Layout for larger screens */
+        @media (min-width: 768px) {
+            .main-layout {
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+            }
+
+            .sidebar {
+                height: 100vh;
+                position: sticky;
+                top: 0;
+            }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .main-layout {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>ordered list</h2>
-    <ol type="I" start="5" style="color: blueviolet;">
-        <li>KENYA</li>
-        <li>South Africa</li>
-        <li>SOMALIA</li>
-        <li>NIGERIA</li>
-    </ol>
+    <header>
+        <div class="logo">Responsive Design</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h2>UNORDERED LIST</h2>
-    <ul type="square" style="background-color: chocolate;">
-        <li>KENYA</li>
-        <li>South Africa</li>
-        <li>SOMALIA</li>
-        <li>NIGERIA</li>
-    </ul>
+    <div class="main-layout">
+        <main class="container">
+            <article class="card">
+                <img src="https://source.unsplash.com/random/600x400?tech" alt="Tech">
+                <div class="card-content">
+                    <h3>Technology Trends</h3>
+                    <p>Explore the latest in technology and innovation shaping our future.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://source.unsplash.com/random/600x400?design" alt="Design">
+                <div class="card-content">
+                    <h3>Modern Design</h3>
+                    <p>Discover contemporary design principles for digital experiences.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://source.unsplash.com/random/600x400?business" alt="Business">
+                <div class="card-content">
+                    <h3>Business Strategy</h3>
+                    <p>Learn how to adapt your business to the changing digital landscape.</p>
+                </div>
+            </article>
+        </main>
 
-    <h2>DEFINITION lIST</h2>
-    <dl>
-        <dt>HTML</dt>
-        <dd>HYPERTEXTMARKUP LANGUAGE</dd>
-    </dl>
-    <h2>IMAGES</h2>
-    <h3>INTERNAL IMAGES</h3>
-<img src="./pexels-photo-1592384.webp" alt="image of a car" height="500px" width="500px">
-<h3>EXTERNAL IMAGES</h3>
-<img src="https://images.pexels.com/photos/1637859/pexels-photo-1637859.jpeg?auto=compress&cs=tinysrgb&w=600" alt="image of a car" height="500" width="">
-<h2>HTML TABLES</h2>
-<table border="1">
-    <thead>
-        <tr>
-            <th> STUDENT NAME</th>
-            <th>AGE</th>
-            <th>COUNTRY</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>G.P</td>
-            <td>23</td>
-            <td>KENYA</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>G.P</td>
-            <td>23</td>
-            <td>KENYA</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>P.P</td>
-            <td>29</td>
-            <td>uganda</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>G.P</td>
-            <td>27</td>
-            <td>MALAWI</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>G.P</td>
-            <td>26</td>
-            <td>south africa</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <th> STUDENT NAME</th>
-            <th>AGE</th>
-            <th>COUNTRY</th>
-        </tr>
-    </tfoot>
-</table>
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">UX Design</a></li>
+                <li><a href="#">Digital Marketing</a></li>
+                <li><a href="#">Content Strategy</a></li>
+                <li><a href="#">SEO Optimization</a></li>
+            </ul>
+        </aside>
+    </div>
 
-<table border="2">
-<thead>
-    <tr>
-        <th>AGE</th>
-        <th>occupation</th>
-        <th>INDUSTRY</th>
-
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>23</td>    
-        <td>NURSE</td>
-        <td>NCBA</td>
-        
-    </tr>
-</tbody>
-
-</table>
-
-<h2>HTML FORMS</h2>
-<form action="" method="">
-    <label for="full name">FULL NAME:</label>
-    <input type="text" id="full_name" name="full_name" required placeholder="full_name">
-<br><br>
-<label for="email">EMAIL:</label>
-<input type="email" name="email" placeholder="j@gmail.com">
- <br>
- <label for="password">password</label>
- <input type="password" id="password" name="password">
- <br><br>
- <label for="adress">adress</label>
- <input type="adress" id="adress" name="adress" placeholder="your adress">
- <br><br>
- <label for="gender">GENDER:</label>
- <input type="radio" name="gender" value="female">Female
- <input type="radio" name="gender" value="male">Male
- <br>
- <label for="hobby">HOBBIES</label>
- <input type="checkbox" name="hobby" value="travel">travel
- <input type="checkbox" name="hobby" value="SWIMMING">swimming
- <input type="checkbox" name="hobby" value="skiing">skiing
- <input type="checkbox" name="hobby" value="skiing">skiing
- <br><br>
- <label>COUNTRY</label>
- <select name="country" id="country">
- <option value="SOUTHAFRICA">SOUTH AFRICA</option>
- <option value="KENYA">KENYA</option>
- <option value="DUBAI">DUBAI</option>
- <option value="USA">USA</option>
-</select>
-<BR></BR>
-<button type="submit">SUBMIT</button>
-<button type="cancel">cancel</button>
-<input type="reset" value="cancel/reset">
-</form>
-<form action="">
-    <input type="email">
-</form>
-
+    <footer>
+        <div class="social-icons">
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <p>&copy; 2023 Responsive Design Demo. All rights reserved.</p>
+    </footer>
 </body>
 </html>
